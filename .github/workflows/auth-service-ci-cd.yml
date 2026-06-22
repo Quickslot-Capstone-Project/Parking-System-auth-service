@@ -22,7 +22,7 @@ jobs:
   ci:
     name: Auth Service CI
     if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
-    uses: Quickslot-Capstone-Project/Parking-System/.github/workflows/reusable-ci.yml@main
+    uses: Quickslot-Capstone-Project/Parking-System/.github/workflows/reusable-ci.yml@master
     with:
       trigger_event: ${{ github.event_name }}
       source_sha: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
@@ -38,7 +38,7 @@ jobs:
   release:
     name: Release Auth Service
     if: ${{ github.event_name == 'workflow_dispatch' }}
-    uses: Quickslot-Capstone-Project/Parking-System/.github/workflows/reusable-release.yml@main
+    uses: Quickslot-Capstone-Project/Parking-System/.github/workflows/reusable-release.yml@master
     with:
       release_tag: ${{ inputs.release_tag }}
       service_name: auth-service
